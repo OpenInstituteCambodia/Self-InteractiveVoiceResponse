@@ -9,7 +9,8 @@
     "ionic:build": "ionic-app-scripts build",
     "ionic:serve": "ionic-app-scripts serve",
     "live:device": "ionic emulate android -l --all --device --target=516cd90b",
-    "live:emulator": "ionic emulate android -l --all --emulator"
+    "live:emulator": "ionic emulate android -l --all --emulator",
+    "db:copy": "cp -rf src/appdata.db www/appdata.db"
   },
   "dependencies": {
     "@angular/common": "2.4.8",
@@ -43,7 +44,8 @@
     "cordova-plugin-nativeaudio",
     "cordova-plugin-background-mode",
     "cordova-plugin-is-debug",
-    "cordova-sqlite-storage"
+    "cordova-sqlite-storage",
+    "cordova-plugin-file"
   ],
   "cordovaPlatforms": [
     "android"
