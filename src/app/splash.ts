@@ -7,7 +7,7 @@ import { MenuPage } from '../pages/menu/menu';
 @Component({
   selector: 'page-splash',
   template: `
-    <ion-content padding Splashscreen [attr.hide]="fadeOut">
+    <ion-content padding Splashscreen>
       <ion-grid middle>
         <ion-row wrap>
           <ion-col width-20>
@@ -78,7 +78,7 @@ export class SplachController {
         this.navCtrl.setRoot(
           MenuPage
         );
-      }, this.delay ? 1000 : 0);
+      }, this.delay ? 500 : 0);
     }).catch( err => console.log("Database Check: Error, ", err) );
   }
 }
