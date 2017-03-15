@@ -25,6 +25,7 @@ declare var cordova: any;
 })
 export class SplachController {
   fadeOut = false;
+  delay = true;
   constructor(public navCtrl: NavController) {
     this.init();
   }
@@ -54,6 +55,7 @@ export class SplachController {
         );
       } else {
         return new Promise((resolve, reject) => {
+          this.delay = false;
           resolve("Database Check: Database already exist!!!");
         });
       }
@@ -64,7 +66,7 @@ export class SplachController {
         this.navCtrl.setRoot(
           MenuPage
         );
-      }, 1000);
+      }, this.delay ? 1000 : 0);
     }).catch( err => console.log("Database Check: Error, ", err) );
   }
 }
