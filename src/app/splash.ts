@@ -32,7 +32,14 @@ export class SplachController {
 
   private init() {
     console.log("Cordova", cordova);
+    this.setup();
     this.databaseCheck();
+  }
+
+  private setup() {
+    let storage = window.localStorage;
+    storage.setItem('path_sounds', 'assets/files/sounds');
+    storage.setItem('path_images', 'assets/files/images');
   }
 
 
