@@ -42,7 +42,14 @@ export class SplachController {
 
 
   private databaseCheck() {
+    // Create Database folder
+    File.createDir(
+      cordova.file.applicationStorageDirectory,
+      'databases',
+      false
+    ).then( suc => console.log(suc) ).catch( err => console.log(err));
 
+    // Checking for existing database, or copying new database over
     File.listDir(
       cordova.file.applicationStorageDirectory,
       'databases'
