@@ -64,7 +64,7 @@ export class SplachController {
         this.navCtrl.setRoot(
           MenuPage
         );
-      }, 2000);
+      }, 1000);
     }).catch( err => console.log("Database Check: Error, ", err) );
   }
 }
