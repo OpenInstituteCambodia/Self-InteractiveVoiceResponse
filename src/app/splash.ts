@@ -1,12 +1,13 @@
 import { Component } from '@angular/core';
-import { Platform, LoadingController } from 'ionic-angular';
-import { StatusBar, Splashscreen, SQLite, File, IsDebug } from 'ionic-native';
+import { NavController } from 'ionic-angular';
+import { File } from 'ionic-native';
 
-import { HomePage } from '../pages/home/home';
+import { MenuPage } from '../pages/menu/menu';
 
 declare var cordova: any;
 
 @Component({
+  selector: 'page-splash',
   template: `
     <ion-content padding Splashscreen [attr.hide]="fadeOut">
       <ion-grid middle>
@@ -23,8 +24,8 @@ declare var cordova: any;
   `
 })
 export class SplachController {
-  fadeOut;
-  constructor(private platform: Platform, private loadingCtrl: LoadingController) {
+  fadeOut = false;
+  constructor(public navCtrl: NavController) {
     this.init();
   }
 
@@ -56,13 +57,14 @@ export class SplachController {
           resolve("Database Check: Database already exist!!!");
         });
       }
-
     }).then((databaseReady) => {
-      console.log("Database Check: Completed, Navigating page...");
       this.fadeOut = true;
+      console.log("Database Check: Completed, Navigating page...");
       setTimeout(() => {
-        // this.rootPage = HomePage;
-      }, 500);
+        this.navCtrl.setRoot(
+          MenuPage
+        );
+      }, 2000);
     }).catch( err => console.log("Database Check: Error, ", err) );
   }
 }

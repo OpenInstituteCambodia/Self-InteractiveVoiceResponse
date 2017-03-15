@@ -2,14 +2,16 @@ import { NgModule, ErrorHandler, NO_ERRORS_SCHEMA } from '@angular/core';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 
 import { MyApp } from './app.component';
-import { HomePage } from '../pages/home/home';
 import { SplachController } from './splash';
+import { MenuPage } from '../pages/menu/menu';
+import { UnitPage } from '../pages/unit/unit';
 
 @NgModule({
   declarations: [
     MyApp,
     SplachController,
-    HomePage
+    MenuPage,
+    UnitPage
   ],
   imports: [
     IonicModule.forRoot(MyApp)
@@ -18,7 +20,8 @@ import { SplachController } from './splash';
   entryComponents: [
     MyApp,
     SplachController,
-    HomePage
+    MenuPage,
+    UnitPage
   ],
   providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}],
   schemas: [ NO_ERRORS_SCHEMA ]

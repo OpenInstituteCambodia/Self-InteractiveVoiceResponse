@@ -48,7 +48,7 @@ ion-col {
       font-size: 3em;
     }
 
-    [hide] {
+    &[hide="true"] {
       animation: hide 1s linear;
       opacity: 0.1;
     }
