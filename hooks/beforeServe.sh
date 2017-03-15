@@ -1,3 +1,3 @@
 #!/bin/bash
 
-cp ./src/appdata.db ./www/appdata.db
+cp ./database/appdata.db ./www/appdata.db
