@@ -4,8 +4,6 @@ import { File } from 'ionic-native';
 
 import { MenuPage } from '../pages/menu/menu';
 
-declare var cordova: any;
-
 @Component({
   selector: 'page-splash',
   template: `
