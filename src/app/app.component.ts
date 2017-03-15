@@ -1,22 +1,36 @@
-import { Component } from '@angular/core';
-import { Platform } from 'ionic-angular';
+import { Component, enableProdMode } from '@angular/core';
+import { Platform, LoadingController } from 'ionic-angular';
 import { StatusBar, Splashscreen } from 'ionic-native';
 
 import { HomePage } from '../pages/home/home';
 
+enableProdMode();
+declare var cordova: any;
 
 @Component({
-  templateUrl: 'app.html'
+  template: '<ion-nav [root]="rootPage"></ion-nav>'
 })
 export class MyApp {
-  rootPage = HomePage;
+  rootPage;
 
-  constructor(platform: Platform) {
-    platform.ready().then(() => {
+  constructor(private platform: Platform, private loadingCtrl: LoadingController) {
+    this.init();
+  }
+
+  private init() {
+    this.platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
       StatusBar.styleDefault();
       Splashscreen.hide();
-    });
+
+      this.databaseCheck();
+
+      this.rootPage = HomePage;
+    }).catch( err => console.log(err) );
+  }
+
+  private databaseCheck() {
+
   }
 }
