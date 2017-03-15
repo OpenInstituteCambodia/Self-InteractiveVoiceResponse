@@ -1,18 +1,18 @@
+
 import { Component, enableProdMode } from '@angular/core';
 import { Platform, LoadingController } from 'ionic-angular';
-import { StatusBar, Splashscreen } from 'ionic-native';
+import { StatusBar, Splashscreen, SQLite, File, IsDebug } from 'ionic-native';
 
 import { HomePage } from '../pages/home/home';
+import { SplachController } from './splash';
 
 enableProdMode();
-declare var cordova: any;
 
 @Component({
   template: '<ion-nav [root]="rootPage"></ion-nav>'
 })
 export class MyApp {
-  rootPage;
-
+  rootPage = SplachController;
   constructor(private platform: Platform, private loadingCtrl: LoadingController) {
     this.init();
   }
@@ -24,13 +24,6 @@ export class MyApp {
       StatusBar.styleDefault();
       Splashscreen.hide();
 
-      this.databaseCheck();
-
-      this.rootPage = HomePage;
     }).catch( err => console.log(err) );
-  }
-
-  private databaseCheck() {
-
   }
 }
