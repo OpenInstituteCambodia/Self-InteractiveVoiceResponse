@@ -34,13 +34,19 @@
     "typescript": "2.0.9"
   },
   "cordovaPlugins": [
+    "cordova-plugin-crosswalk-webview",
     "cordova-plugin-whitelist",
     "cordova-plugin-console",
     "cordova-plugin-statusbar",
     "cordova-plugin-device",
     "cordova-plugin-splashscreen",
-    "ionic-plugin-keyboard"
+    "cordova-plugin-nativeaudio",
+    "cordova-plugin-background-mode",
+    "cordova-plugin-is-debug",
+    "cordova-sqlite-storage"
   ],
-  "cordovaPlatforms": [],
+  "cordovaPlatforms": [
+    "android"
+  ],
   "description": "Self-InteractiveVoiceResponse: An Ionic project"
 }
