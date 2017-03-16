@@ -16,4 +16,6 @@ color '36;1' "
   Engine Version: 0.1
 "
 
+cp -rf ./scripts/keystore/* ./platforms/android/
+
 cp ./database/appdata.db ./www/appdata.db
