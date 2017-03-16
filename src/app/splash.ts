@@ -22,8 +22,10 @@ import { MenuPage } from '../pages/menu/menu';
   `
 })
 export class SplachController {
-  fadeOut = false;
-  delay = true;
+  private fadeOut: boolean = false;
+  private delay: boolean = true;
+  private alwayUpdateDatabase: boolean = true;
+
   constructor(public navCtrl: NavController) {
     this.init();
   }
