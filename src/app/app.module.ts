@@ -5,6 +5,7 @@ import { MyApp } from './app.component';
 import { SplachController } from './splash';
 import { MenuPage } from '../pages/menu/menu';
 import { UnitPage } from '../pages/unit/unit';
+import { HelperPage } from '../pages/helper/helper';
 
 import { DebugController } from '../debug/debug';
 
@@ -14,7 +15,8 @@ import { DebugController } from '../debug/debug';
     DebugController,
     SplachController,
     MenuPage,
-    UnitPage
+    UnitPage,
+    HelperPage
   ],
   imports: [
     IonicModule.forRoot(MyApp)
@@ -25,7 +27,8 @@ import { DebugController } from '../debug/debug';
     DebugController,
     SplachController,
     MenuPage,
-    UnitPage
+    UnitPage,
+    HelperPage
   ],
   providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}],
   schemas: [ NO_ERRORS_SCHEMA ]

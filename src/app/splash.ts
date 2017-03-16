@@ -40,8 +40,8 @@ export class SplachController {
 
   private setup() {
     let storage = window.localStorage;
-    storage.setItem('path_sounds', 'assets/files/sounds');
-    storage.setItem('path_images', 'assets/files/images');
+    storage.setItem('path_sounds', 'assets/files/sounds/');
+    storage.setItem('path_images', 'assets/files/images/');
     this.checkStorage();
   }
 
