@@ -3,6 +3,7 @@ import { NavController } from 'ionic-angular';
 import { File } from 'ionic-native';
 
 import { MenuPage } from '../pages/menu/menu';
+import { PlugableDatabase } from '../debug/debug';
 
 @Component({
   selector: 'page-splash',
@@ -26,7 +27,12 @@ export class SplachController {
   private delay: boolean = true;
   private alwayUpdateDatabase: boolean = true;
 
+  private platformStorage;
+
+  private test = new PlugableDatabase();
+
   constructor(public navCtrl: NavController) {
+    this.test.sayHello();
     this.init();
   }
 
@@ -40,20 +46,31 @@ export class SplachController {
     let storage = window.localStorage;
     storage.setItem('path_sounds', 'assets/files/sounds');
     storage.setItem('path_images', 'assets/files/images');
+    this.checkStorage();
   }
 
+  private checkStorage() {
+    switch(cordova.platformId) {
+      case 'browser':
+        this.platformStorage = cordova.file.dataDirectory;
+        break;
+      case 'android':
+        this.platformStorage = cordova.file.applicationStorageDirectory;
+        break;
+    }
+  }
 
   private databaseCheck() {
     // Create Database folder
     File.createDir(
-      cordova.file.applicationStorageDirectory,
+      this.platformStorage,
       'databases',
       false
     ).then( suc => console.log(suc) ).catch( err => console.log(err));
 
     // Checking for existing database, or copying new database over
     File.listDir(
-      cordova.file.applicationStorageDirectory,
+      this.platformStorage,
       'databases'
     ).then((checkSuc) => {
       console.log("Database Check: Success!, ", checkSuc);
@@ -64,7 +81,7 @@ export class SplachController {
         return File.copyFile(
           cordova.file.applicationDirectory+'www',
           'appdata.db',
-          cordova.file.applicationStorageDirectory+'databases',
+          this.platformStorage+'databases',
           'appdata.db'
         );
       } else {
