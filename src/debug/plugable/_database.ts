@@ -3,7 +3,5 @@ export class PlugableDatabase {
     console.log('PlugableDatabase');
   }
 
-  public sayHello() {
-    console.log('PlugableDatabase');
-  }
+  
 }
