@@ -10,6 +10,7 @@
     "ionic:serve": "ionic-app-scripts serve",
     "live:device": "ionic emulate android -l --all --device --target=516cd90b",
     "live:emulator": "ionic emulate android -l --all --emulator",
+    "browser:device": "ionic emulate browser -l --all",
     "db:copy": "cp -rf src/appdata.db www/appdata.db"
   },
   "dependencies": {
@@ -48,6 +49,7 @@
     "cordova-plugin-file"
   ],
   "cordovaPlatforms": [
+    "browser",
     "android"
   ],
   "description": "Self-InteractiveVoiceResponse: An Ionic project"
