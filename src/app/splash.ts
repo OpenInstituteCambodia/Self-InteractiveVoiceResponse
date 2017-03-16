@@ -3,7 +3,6 @@ import { NavController } from 'ionic-angular';
 import { File } from 'ionic-native';
 
 import { MenuPage } from '../pages/menu/menu';
-import { PlugableDatabase } from '../debug/debug';
 
 @Component({
   selector: 'page-splash',
@@ -29,10 +28,7 @@ export class SplachController {
 
   private platformStorage;
 
-  private test = new PlugableDatabase();
-
   constructor(public navCtrl: NavController) {
-    this.test.sayHello();
     this.init();
   }
 
