@@ -6,9 +6,12 @@ import { SplachController } from './splash';
 import { MenuPage } from '../pages/menu/menu';
 import { UnitPage } from '../pages/unit/unit';
 
+import { DebugController } from '../debug/debug';
+
 @NgModule({
   declarations: [
     MyApp,
+    DebugController,
     SplachController,
     MenuPage,
     UnitPage
@@ -19,6 +22,7 @@ import { UnitPage } from '../pages/unit/unit';
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
+    DebugController,
     SplachController,
     MenuPage,
     UnitPage
