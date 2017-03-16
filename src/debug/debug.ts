@@ -1,5 +1,2 @@
-import { Component } from '@angular/core';
-
-export class DebugController {
-  constructor() {}
-}
+export { PlugableDatabase } from './plugable/_database';
+export { PlugableLog } from './plugable/_log';
