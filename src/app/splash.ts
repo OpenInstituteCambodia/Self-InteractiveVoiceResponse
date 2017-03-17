@@ -29,11 +29,13 @@ export class SplachController {
   private platformStorage;
 
   constructor(public navCtrl: NavController) {
+  }
+
+  ionViewDidLoad() {
     this.init();
   }
 
   private init() {
-    console.log("Cordova", cordova);
     this.setup();
     this.databaseCheck();
   }
