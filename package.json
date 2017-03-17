@@ -9,7 +9,7 @@
     "ionic:build": "ionic-app-scripts build",
     "ionic:serve": "ionic-app-scripts serve",
     "live:device": "ionic emulate android -l --all --device --target=02c61ea9d02184d6",
-    "live:emulator": "ionic emulate android -l --all --emulator --browser",
+    "live:emulator": "ionic emulate android -l --address 192.168.2.124 --emulator",
     "browser:device": "ionic emulate browser -l --all",
     "db:copy": "cp -rf src/appdata.db www/appdata.db"
   },
