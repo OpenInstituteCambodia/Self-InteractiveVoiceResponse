@@ -1,10 +1,7 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
-import { PlugableController, PlugableNavigator } from './plugable/plugable';
+import { NavController } from 'ionic-angular';
 
-/*
-  I suggess to call this page using ModalViewcontroller;
-*/
+import { PlugableNavigate } from './plugable/plugable';
 
 @Component({
   selector: 'page-debug',
@@ -18,25 +15,26 @@ import { PlugableController, PlugableNavigator } from './plugable/plugable';
       <ion-item-group>
         <ion-item-divider color="danger">Tools</ion-item-divider>
         <ion-item (click)="debugNavigate()">Navigate</ion-item>
-        <ion-item (click)="alert()">Database</ion-item>
-        <ion-item (click)="alert()">Unit Testing</ion-item>
-        <ion-item (click)="alert()">Logs</ion-item>
+        <ion-item (click)="debugDatabase()">Database</ion-item>
+        <ion-item (click)="debugUnitTesting()">Unit Testing</ion-item>
+        <ion-item (click)="debugLogs()">Logs</ion-item>
       </ion-item-group>
     </ion-content>
   `
 })
 export class DebugController {
-  constructor(private navCtrl: NavController, private navParams: NavParams) {
+  private platformStorage;
 
-  }
+  constructor(public navCtrl: NavController) {
 
-  private alert() {
-    console.log('LOLz');
   }
 
   private debugNavigate() {
-    this.navCtrl.push(
-      PlugableNavigator,{}
-    );
+    this.navCtrl.push(PlugableNavigate);
   }
+  private debugDatabase() {}
+  private debugUnitTesting() {}
+  private debugLogs() {}
+
+
 }

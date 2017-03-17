@@ -1,13 +1,18 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: '',
+  selector: 'debug-navigate',
   template: `
-    <h1>Navi</h1>
+    <ion-header>
+      <ion-navbar color="danger">
+        <ion-title>Application Debugging</ion-title>
+      </ion-navbar>
+    </ion-header>
+    <ion-content>
+      navigate
+    </ion-content>
   `
 })
-export class PlugableNavigator {
-  constructor() {
-
-  }
+export class PlugableNavigate {
+  
 }

@@ -7,16 +7,19 @@ import { MenuPage } from '../pages/menu/menu';
 import { UnitPage } from '../pages/unit/unit';
 import { HelperPage } from '../pages/helper/helper';
 
+// Debug Modules
 import { DebugController } from '../debug/debug';
+import { PlugableNavigate } from '../debug/plugable/plugable';
 
 @NgModule({
   declarations: [
     MyApp,
-    DebugController,
     SplachController,
     MenuPage,
     UnitPage,
-    HelperPage
+    HelperPage,
+    DebugController,
+    PlugableNavigate
   ],
   imports: [
     IonicModule.forRoot(MyApp)
@@ -24,11 +27,12 @@ import { DebugController } from '../debug/debug';
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    DebugController,
     SplachController,
     MenuPage,
     UnitPage,
-    HelperPage
+    HelperPage,
+    DebugController,
+    PlugableNavigate
   ],
   providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}],
   schemas: [ NO_ERRORS_SCHEMA ]
