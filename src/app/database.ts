@@ -1,5 +1,7 @@
+import { Injectable } from '@angular/core';
 import { SQLite } from 'ionic-native';
 
+@Injectable()
 export class DatabaseController {
   private _db = new SQLite();
   private _connected = false;

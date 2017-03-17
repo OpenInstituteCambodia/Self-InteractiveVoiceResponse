@@ -7,6 +7,9 @@ import { MenuPage } from '../pages/menu/menu';
 import { UnitPage } from '../pages/unit/unit';
 import { HelperPage } from '../pages/helper/helper';
 
+// DatabaseService
+import { DatabaseController } from './database';
+
 // Debug Modules
 import { DebugController } from '../debug/debug';
 import { PlugableNavigate, PlugableDatabase } from '../debug/plugable/plugable';
@@ -36,7 +39,7 @@ import { PlugableNavigate, PlugableDatabase } from '../debug/plugable/plugable';
     PlugableNavigate,
     PlugableDatabase
   ],
-  providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}],
+  providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}, DatabaseController],
   schemas: [ NO_ERRORS_SCHEMA ]
 })
 export class AppModule {}
