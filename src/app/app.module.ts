@@ -9,7 +9,7 @@ import { HelperPage } from '../pages/helper/helper';
 
 // Debug Modules
 import { DebugController } from '../debug/debug';
-import { PlugableNavigate } from '../debug/plugable/plugable';
+import { PlugableNavigate, PlugableDatabase } from '../debug/plugable/plugable';
 
 @NgModule({
   declarations: [
@@ -19,7 +19,8 @@ import { PlugableNavigate } from '../debug/plugable/plugable';
     UnitPage,
     HelperPage,
     DebugController,
-    PlugableNavigate
+    PlugableNavigate,
+    PlugableDatabase
   ],
   imports: [
     IonicModule.forRoot(MyApp)
@@ -32,7 +33,8 @@ import { PlugableNavigate } from '../debug/plugable/plugable';
     UnitPage,
     HelperPage,
     DebugController,
-    PlugableNavigate
+    PlugableNavigate,
+    PlugableDatabase
   ],
   providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}],
   schemas: [ NO_ERRORS_SCHEMA ]

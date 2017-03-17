@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 
-import { PlugableNavigate } from './plugable/plugable';
+import { PlugableNavigate, PlugableDatabase } from './plugable/plugable';
 
 @Component({
   selector: 'page-debug',
@@ -32,7 +32,9 @@ export class DebugController {
   private debugNavigate() {
     this.navCtrl.push(PlugableNavigate);
   }
-  private debugDatabase() {}
+  private debugDatabase() {
+    this.navCtrl.push(PlugableDatabase);
+  }
   private debugUnitTesting() {}
   private debugLogs() {}
 
