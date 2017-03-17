@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-
-import { PlugableController } from './plugable/plugable';
+import { NavController, NavParams } from 'ionic-angular';
+import { PlugableController, PlugableNavigator } from './plugable/plugable';
 
 /*
   I suggess to call this page using ModalViewcontroller;
@@ -17,17 +17,26 @@ import { PlugableController } from './plugable/plugable';
     <ion-content>
       <ion-item-group>
         <ion-item-divider color="danger">Tools</ion-item-divider>
-        <ion-item (press)="alert()">Database</ion-item>
-        <ion-item (press)="alert()">Unit Testing</ion-item>
-        <ion-item (press)="alert()">Logs</ion-item>
+        <ion-item (click)="debugNavigate()">Navigate</ion-item>
+        <ion-item (click)="alert()">Database</ion-item>
+        <ion-item (click)="alert()">Unit Testing</ion-item>
+        <ion-item (click)="alert()">Logs</ion-item>
       </ion-item-group>
     </ion-content>
   `
 })
 export class DebugController {
-  constructor() {}
+  constructor(private navCtrl: NavController, private navParams: NavParams) {
+
+  }
 
   private alert() {
-    alert('pressed lolz :D');
+    console.log('LOLz');
+  }
+
+  private debugNavigate() {
+    this.navCtrl.push(
+      PlugableNavigator,{}
+    );
   }
 }
