@@ -51,7 +51,7 @@ import { DatabaseController } from '../../app/database';
       <ion-item-group>
         <ion-item-divider color="light">Available units</ion-item-divider>
         <ion-item *ngFor="let item of units; let i = index;" (click)="navigate('unit', item.unit_id)">
-          {{item.unit_id}}
+          {{item.unit_id}} <ion-badge item-right [ngClass]="colorSwatch(item.unit_style)">{{item.unit_style}}</ion-badge>
         </ion-item>
       </ion-item-group>
     </ion-content>
@@ -82,7 +82,7 @@ export class PlugableNavigate {
     });
     pending.present();
     this._db.executeSQL(
-      'SELECT unit_id FROM units',
+      'SELECT unit_id, unit_style FROM units',
       []
     ).then((unitData) => {
       for (let i = 0; i < unitData.rows.length; i++) {
@@ -111,5 +111,27 @@ export class PlugableNavigate {
 
         break;
     }
+  }
+
+  private colorSwatch(style) {
+    let colorStyle = '';
+    switch(style) {
+      case 'M1':
+        colorStyle = 'badge-md-primary badge-ios-primary';
+        break;
+      case 'M2':
+        colorStyle = 'badge-md-secondary badge-ios-secondary';
+        break;
+      case 'M3':
+        colorStyle = 'badge-md-danger badge-ios-danger';
+        break;
+      case 'M4':
+        colorStyle = 'badge-md-dark badge-ios-dark';
+        break;
+      case 'M5':
+        colorStyle = 'badge-md-light badge-ios-light';
+        break;
+    }
+    return colorStyle;
   }
 }
