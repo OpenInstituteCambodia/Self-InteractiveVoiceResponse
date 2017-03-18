@@ -12,7 +12,7 @@ import { DatabaseController } from './database';
 
 // Debug Modules
 import { DebugController } from '../debug/debug';
-import { PlugableNavigate, PlugableDatabase } from '../debug/plugable/plugable';
+import { PlugableNavigate, PlugableDatabase, PlugableUnitTest } from '../debug/plugable/plugable';
 
 @NgModule({
   declarations: [
@@ -23,7 +23,8 @@ import { PlugableNavigate, PlugableDatabase } from '../debug/plugable/plugable';
     HelperPage,
     DebugController,
     PlugableNavigate,
-    PlugableDatabase
+    PlugableDatabase,
+    PlugableUnitTest
   ],
   imports: [
     IonicModule.forRoot(MyApp)
@@ -37,7 +38,8 @@ import { PlugableNavigate, PlugableDatabase } from '../debug/plugable/plugable';
     HelperPage,
     DebugController,
     PlugableNavigate,
-    PlugableDatabase
+    PlugableDatabase,
+    PlugableUnitTest
   ],
   providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}, DatabaseController],
   schemas: [ NO_ERRORS_SCHEMA ]
