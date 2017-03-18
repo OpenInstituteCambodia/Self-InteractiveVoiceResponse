@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams, PopoverController, LoadingController } from 'ionic-angular';
+import { NavController, NavParams, LoadingController } from 'ionic-angular';
 
 import { MenuPage} from '../../pages/menu/menu.ts';
 import { UnitPage } from '../../pages/unit/unit.ts';
@@ -25,7 +25,7 @@ import { DatabaseController } from '../../app/database';
       <ion-item-group>
         <ion-item-divider>Tools</ion-item-divider>
         <div padding>
-          <button ion-button block color="dark" (click)="startUnitTest()">Start One-to-One Test</button>
+          <button ion-button block color="dark" (click)="switchMode()">Start One-to-One Test</button>
           <button ion-button block>Continue from last</button>
         </div>
       </ion-item-group>
@@ -98,7 +98,7 @@ export class PlugableUnitTest {
   }
 
   private startUnitTest() {
-    this.switchMode();
+    console.log('Start Unit Testing...');
   }
 
   private resumeUnitTest() {}
