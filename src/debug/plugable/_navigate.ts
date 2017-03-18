@@ -96,8 +96,6 @@ export class PlugableNavigate {
   }
 
   private navigate(page, uri) {
-
-
     switch(page) {
       case 'menu':
 
