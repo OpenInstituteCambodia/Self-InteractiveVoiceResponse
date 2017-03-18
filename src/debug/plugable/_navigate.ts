@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams, PopoverController } from 'ionic-angular';
+import { NavController, NavParams, PopoverController, LoadingController } from 'ionic-angular';
 
 import { MenuPage} from '../../pages/menu/menu.ts';
 import { UnitPage } from '../../pages/unit/unit.ts';
@@ -46,6 +46,7 @@ import { DatabaseController } from '../../app/database';
         </ion-item>
       </ion-item-group>
     </ion-content>
+
     <ion-content *ngIf="_mode == 'complex'">
       <ion-item-group>
         <ion-item-divider color="light">Available units</ion-item-divider>
@@ -59,7 +60,7 @@ import { DatabaseController } from '../../app/database';
 export class PlugableNavigate {
   public units: Array<any> = [];
   private _mode = 'basic';
-  constructor(private _db: DatabaseController, public navCtrl: NavController, public navParams: NavParams) {
+  constructor(private _db: DatabaseController, public navCtrl: NavController, public navParams: NavParams, private loadingCtrl: LoadingController) {
     if (typeof this.navParams.get('mode') != 'undefined') {
       this._mode = this.navParams.get('mode');
     }
@@ -76,17 +77,27 @@ export class PlugableNavigate {
   }
 
   private prepopulateUnit() {
+    let pending = this.loadingCtrl.create({
+      spinner: 'dots'
+    });
+    pending.present();
     this._db.executeSQL(
       'SELECT unit_id FROM units',
       []
     ).then((unitData) => {
       for (let i = 0; i < unitData.rows.length; i++) {
         this.units.push(unitData.rows.item(i));
+
+        if (i == unitData.rows.length-1) {
+          pending.dismiss();
+        }
       }
     }).catch(err => console.log(err) );
   }
 
   private navigate(page, uri) {
+
+
     switch(page) {
       case 'menu':
 
