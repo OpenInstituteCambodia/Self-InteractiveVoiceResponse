@@ -44,10 +44,10 @@ import { DatabaseController } from '../../app/database';
             </h1>
           </ion-col>
           <ion-col width-100>
-            <ion-card hidden>
+            <ion-card>
               <img src="assets/files/images/L1.1P12.jpg">
             </ion-card>
-            <h1 test-text text-center>text</h1>
+            <h1 hidden test-text text-center>text</h1>
           </ion-col>
 
           <ion-col width-100 text-center>
@@ -98,7 +98,17 @@ export class PlugableUnitTest {
   }
 
   private startUnitTest() {
-    console.log('Start Unit Testing...');
+    let loading = this.loadingCtrl.create({
+      content: 'Start Unit Testing...',
+      duration: 3000
+    });
+    loading.present();
+
+    // Validating files
+
+    // Testing Playback function
+
+    // Save information
   }
 
   private resumeUnitTest() {}
