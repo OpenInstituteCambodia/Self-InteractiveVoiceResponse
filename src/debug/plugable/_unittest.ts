@@ -98,17 +98,19 @@ export class PlugableUnitTest {
   }
 
   private startUnitTest() {
-    let loading = this.loadingCtrl.create({
-      content: 'Start Unit Testing...',
-      duration: 3000
-    });
+    let message = {
+      content: 'Start Unit Testing...'
+    };
+    let loading = this.loadingCtrl.create(message);
     loading.present();
+
 
     // Validating files
 
     // Testing Playback function
 
     // Save information
+
   }
 
   private resumeUnitTest() {}
